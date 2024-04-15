@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirement Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header class="container" >
+        <h1>Retirement Calculator</h1>
+        <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Beach Image">
+        <p id="quote">
+            "You are never too old to set a new goal or dream a new dream." -C.S. Lewis
+        </p>
+
+            <button id="retirementQuoteButton">Get a retirement Quote</button>
+    </header>
+<div class="grid-container">
+    <div class="calculator grid-item">
+            <h1>Enter your Information</h1>
+            <label for="Enter Monthly Savings">Monthly Savings:</label>
+            <input type="number" id="monthly-savings">
+        
+            <label for="Enter number of years until retirement">Years until Retirement:</label>
+            <input type="number" id="years-until-retirement">
+        
+            <label for="annual rate of return">Annual Rate of Return:</label>
+            <input type="number" id="annual-rate-of-return">
+        
+            <button id="calculate-btn">Calculate Retirement Savings</button>
+        
+            <div id="result"></div>
+    </div>
+    
+    
+
+    <div class="results grid-item" id="results-section">
+        <h2>Results</h2>
+        <div id="result-box"></div>
+        <button id="save-result-btn">Save This Result</button>
+    
+        <h2>Saved Results</h2>
+        <ul id="saved-results-list"></ul>
+    </div>
+ </div>
+    <footer>
+        <p>Retirement Calculator &copy; 2024</p>
+    </footer>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+    
+</body>
+</html>
