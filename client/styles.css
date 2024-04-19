@@ -1,18 +1,28 @@
+
 body {
+    background-color: #f5f7f8;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-header {
-    text-align: center; 
+.header {
+    height: 12vh;
+    width: 100vw;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-header h1 {
+.top {
+    text-align: center; 
+    margin-top: 30px ;
+    margin-bottom: 30px ;
+}
+.top h1 {
     margin-bottom: 20px;
 }
-header p {
+.top p {
     margin-top: 20px; 
 }
-header img {
+.top img {
     max-width: 100%; 
     height: auto; 
     display: block; 
@@ -21,19 +31,57 @@ header img {
 }
 
 .grid-container {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr; /* Divide the layout into two columns */
     gap: 20px; /* Add some gap between the columns */
     width: 100%; /* Ensure the grid takes up the full width */
+    height: 100%;
 }
 
 .calculator {
-    padding: 20px; /* Add some padding for spacing */
-    border: 1px solid black; /* Add a border */
+    background-color: white;
+    flex: 1;
+    padding: 20px; 
+    /* border: 1px solid black; */
+    box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.5);
+    height:80vh;
+    
 }
 
+.form {
+    display: grid;
+    
+}
+.form label {
+    font-weight: bold;
+}
+
+.form input{
+    margin-bottom: 20px;
+}
 .results,
 .saved-results {
+    background-color: white;
+    flex: 3;
     padding: 20px; /* Add some padding for spacing */
-    border: 1px solid black; /* Add a border */
+    box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.5);
+    max-width: 80vw;
+    margin-left:50px;
+    display:grid;
+}
+
+#saved-results-list button{
+    background-color: #f44336;
+    text-align: center;
+    color: white;
+    margin-left: 20px;
+    border: none;
+}
+
+.hide {
+    display: none;
+}
+
+button {
+    margin-bottom:5px;
 }
