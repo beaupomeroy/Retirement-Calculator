@@ -11,6 +11,7 @@ body {
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .top {
     text-align: center; 
     margin-top: 30px ;
@@ -84,4 +85,8 @@ body {
 
 button {
     margin-bottom:5px;
+}
+#result-box > span{
+    font-size: 100px;
+    color:rgb(4, 4, 105);
 }

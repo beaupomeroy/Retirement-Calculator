@@ -1,12 +1,17 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const cors = require("cors");
-const {} = require('./controller.js')
+const {} = require("./controller.js");
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static("client"));
 
-const { createRetirement, getRetirementQuote, deleteRetirementData } = require('./controller')
+const {
+	createRetirement,
+	getRetirementQuote,
+	deleteRetirementData,
+} = require("./controller");
 
 app.get("/api/quote", getRetirementQuote);
 app.post("/api/createRetirement", createRetirement);

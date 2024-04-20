@@ -32,7 +32,7 @@ function displayResults(results) {
 			retirementSavings,
 		} = result;
 
-		let message = `$${monthlySavings} per month for ${yearsUntilRetirement} years at ${annualRateOfReturn} = $${retirementSavings}`;
+		let message = `$${monthlySavings} per month for ${yearsUntilRetirement} years at ${annualRateOfReturn} % = $${retirementSavings}`;
 		let resultItem = document.createElement("li");
 		resultItem.textContent = message;
 		// Add the new result to the saved results list
@@ -59,8 +59,14 @@ function submitHandler(e) {
 		yearsUntilRetirement,
 		annualRateOfReturn
 	);
-	let dollarAmount = `$ ${retirementSavings}`;
-	let retirementLabel = document.createElement("h2");
+	let formatting_options = {
+		style: "currency",
+		currency: "USD",
+		minimumFractionDigits: 2,
+	};
+	let dollarString = new Intl.NumberFormat("en-US", formatting_options);
+	let dollarAmount = dollarString.format(retirementSavings);
+	let retirementLabel = document.createElement("span");
 	retirementLabel.textContent = dollarAmount;
 	resultContainer.appendChild(retirementLabel);
 	saveBtn.classList.remove("hide");
@@ -128,7 +134,16 @@ function calculateRetirementSavings(
 	yearsUntilRetirement,
 	annualRateOfReturn
 ) {
-	return monthlySavings * 12 * yearsUntilRetirement; // Simple calculation for demonstration
+	// Convert annual rate of return to decimal and monthly rate
+	const r = annualRateOfReturn / 100 / 12;
+
+	// Convert years to months
+	const n = yearsUntilRetirement * 12;
+
+	// Calculate future value (retirement savings)
+	const futureValue = monthlySavings * ((Math.pow(1 + r, n) - 1) / r);
+
+	return futureValue;
 }
 
 const createRetirement = (body) => {
