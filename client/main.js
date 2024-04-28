@@ -9,13 +9,11 @@ const yearsInput = document.getElementById("years-until-retirement");
 const annualRate = document.getElementById("annual-rate-of-return");
 const resetBtn = document.getElementById("reset-btn");
 
-console.log("hhhhhhh");
 let retirementObject;
 saveBtn.classList.add("hide");
 
 resetBtn.addEventListener("click", function (e) {
 	e.preventDefault();
-	console.log("RESET!");
 	monthlySavingsInput.value = "";
 	yearsInput.value = "";
 	annualRate.value = "";
@@ -32,7 +30,16 @@ function displayResults(results) {
 			retirementSavings,
 		} = result;
 
-		let message = `$${monthlySavings} per month for ${yearsUntilRetirement} years at ${annualRateOfReturn} % = $${retirementSavings}`;
+		// Format retirementSavings with commas and 2 decimal places
+
+		const formattedRetirementSavings = retirementSavings.toLocaleString(
+			undefined,
+			{
+				minimumFractionDigits: 2,
+				maximumFractionDigits: 2,
+			}
+		);
+		let message = `$${monthlySavings} per month for ${yearsUntilRetirement} years at ${annualRateOfReturn} % = $${formattedRetirementSavings}`;
 		let resultItem = document.createElement("li");
 		resultItem.textContent = message;
 		// Add the new result to the saved results list
@@ -102,7 +109,6 @@ const getRetirementQuote = () => {
 };
 
 function deleteRetirementData(index) {
-	console.log("Data deleted successfully", index);
 	axios
 		.delete(`http://localhost:4000/api/delete/${index}`)
 		.then((res) => {
